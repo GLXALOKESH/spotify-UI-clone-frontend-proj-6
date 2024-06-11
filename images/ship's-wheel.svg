@@ -1,0 +1,53 @@
+<svg width="240" height="240" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Spokes -->
+  <g transform="rotate(0 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2"
+     />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(45 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(90 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(135 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(180 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(225 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(270 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  <g transform="rotate(315 100 100)">
+    <line x1="100" y1="100" x2="160" y2="100" stroke="#000" stroke-width="2" />
+    <line x1="120" y1="100" x2="160" y2="100" stroke="#000" stroke-width="4" />
+    <line x1="140" y1="100" x2="160" y2="100" stroke="#000" stroke-width="6" />
+  </g>
+  
+  <!-- Medium thickness circle -->
+  <circle cx="100" cy="100" r="30" stroke="#000" stroke-width="6" fill="none" />
+  
+ <!-- Center cap -->
+  <circle cx="100" cy="100" r="10" fill="#000" />
+  
+  <!-- Bolts -->
+  <circle cx="105" cy="100">

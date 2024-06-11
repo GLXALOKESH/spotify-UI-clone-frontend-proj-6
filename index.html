@@ -9,18 +9,19 @@
 </head>
 
 <body>
+    <!-- slider section -->
     <div class="slider">
         <div class="slider-p1">
-            <div class="logo"><img src="logo.svg" alt=""></div>
-            <div class="home slider-opt"><img src="home.svg" alt="home"> Home</div>
-            <div class="search slider-opt"><img src="search.svg" alt=""> Search</div>
-            <div class="library slider-opt"> <img src="library.svg" alt="">
-                Your Library <img src="add.svg" alt=""></div>
+            <div class="logo"><img src="images/logo.svg" alt=""></div>
+            <div class="home slider-opt"><img src="images/home.svg" alt="home"> Home</div>
+            <div class="search slider-opt"><img src="images/search.svg" alt=""> Search</div>
+            <div class="library slider-opt"> <img src="images/library.svg" alt="">
+                Your Library <img src="images/add.svg" alt=""></div>
         </div>
         <div class="queue">
             <div class="song-card">
                 <div class="in-song-cont">
-                    <img src="music.svg" alt="">    
+                    <img src="images/music.svg" alt="">    
                     <div class="names">
                         <p>Song name</p>
                         <p>artist name </p>
@@ -28,7 +29,7 @@
                 </div>
 
                 
-                <img src="play1.svg" alt="">
+                <img src="images/play1.svg" alt="">
             </div>
             
         </div>
@@ -37,33 +38,58 @@
             <a href="">Cookies</a>
             <a href="">leagal</a>
             <div class="btn-lang">
-                <img src="internet.svg" alt="">
+                <img src="images/internet.svg" alt="">
                 English
             </div>
         </div>
     </div>
+    <!-- cont2 -->
     <div class="cont">
+        <!-- navbar -->
         <div class="nav">
-            <div class="file-input-wrapper">
-                <label for="audio-upload" class="file-input-label">
-                    <input type="file" id="audio-upload" accept="audio/*">
-                    Add Song
-                </label>
-            </div>
+            
             <div class="signup">Sign UP</div>
             <div class="login"> Log In </div>
         </div>
+        <!-- playlist and cards -->
         <div class="playlist">
 
             <div class="card">
-                <div class="p-cover-img"><img src="6c2abf01-1255-4e5e-b4e3-8bb1e2333d8e.png" alt="cover img" id="playlistCoverImg"></div>
-                <p class="title"></p>
-                <p class="artist"></p>
-                <div class="play-btn-card"></div>
+                <div class="p-cover-img"><img src="images/cover.png" alt="cover img" id="playlistCoverImg"><img src="images/add-circ.svg" alt="add" id="addcirc"></div>
+                <p class="title">Song Title</p>
+                <p class="artist">song artist</p>
+                <div class="play-btn-card">
+                    <img src="images/playcard.svg" alt="">
+                </div>
             </div>
 
+
+
+
+
+            
+
         </div>
-        <div class="playbar"></div>
+        <!-- playbar -->
+        <div class="playbar">
+            <div class="song-details">
+                <div class="in-song-playbar">
+
+                    <div class="cover-box">
+                        <img src="images/cover-bar.svg" alt="">
+                    </div>    
+                    <div class="names-playbar">
+                        <p>Song name</p>
+                        <p>artist name </p>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <img src="images/previous-bar.svg" alt="previous" id="prevbar">
+                <img src="images/play-bar.svg" alt="play" id="playbar">
+                <img src="images/next-bar.svg" alt="next" id="nextbar">
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
