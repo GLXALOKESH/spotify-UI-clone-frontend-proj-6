@@ -327,36 +327,37 @@ font-size: 14px;
     background-color: transparent;
     position: absolute;
     right: 10%;
-    bottom: 35%;
+    bottom: 20%;
     opacity: 0;
-    display: none;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    /*display: none;
+    */-webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    visibility: hidden;
+    -webkit-transition: all 0.2s ease-in-out;
 }
-.play-btn-card-hv{
-    opacity: 100;
-    display: block;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
+.card:hover .play-btn-card {
+    opacity: 1; 
+    /* display: block;  */
+    right: 10%;
+    bottom: 35%;
+    visibility: visible;
 }
+
 .play-btn-card img{
     height: 40px;
 }
 
-#addcirc{
+.p-cover-img > img:nth-child(2){
     position: absolute;
     height: 16px;
     z-index: 2;
     bottom: 15px;
     left: 10px;
 }
-#addcirc:hover{
+.p-cover-img > img:nth-child(2):hover{
     filter: brightness(0) saturate(100%) invert(62%) sepia(76%) saturate(403%) hue-rotate(89deg) brightness(92%) contrast(86%);
 }
 /* play bar design */
