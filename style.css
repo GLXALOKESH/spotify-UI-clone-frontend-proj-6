@@ -138,6 +138,7 @@ body{
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
+    margin: 10px 0px;
 }
 .song-card img:nth-child(1){
     filter: invert();
@@ -170,6 +171,7 @@ text-overflow: ellipsis;
 .song-card img{
     cursor: pointer;
 }
+
 .cont{
     padding: 5px;
     display: flex;
