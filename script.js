@@ -1,7 +1,16 @@
+
+
 console.log("srcipt running");
+//setting the audio user left playing
+let currentaudio = null;
+let currentsong = localStorage.getItem("currentsong");
+let currenttime = localStorage.getItem("currenttime") || 0;
+if(currentsong){
+   currentaudio = new Audio(currentsong);
+   currentaudio.currentTime = currenttime;
+}
 
-
-
+//function to add song in queue
 
 function addQueue(songname_inp, artistname_inp) {
 
@@ -36,14 +45,16 @@ function addQueue(songname_inp, artistname_inp) {
    play.alt = 'play button';
    songcard.append(play);
 
-   musiclogo.addEventListener("click", ()=>{
+   musiclogo.addEventListener("click", () => {
       songcard.remove()
    })
 
 
 }
 
-async function addcard(title_inp, artist_inp) {
+//function to add song cards
+
+async function addcard(title_inp, artist_inp, filename_inp) {
    let container = document.getElementById("playlistCont")
 
    let card = document.createElement('div')
@@ -76,13 +87,13 @@ async function addcard(title_inp, artist_inp) {
    let playbtn = document.createElement('div')
    playbtn.classList.add("play-btn-card")
    card.append(playbtn);
-   // playbtn.classList.add("play-btn-card-hv")
 
    let playbtnImg = document.createElement('img')
    playbtnImg.src = "images/playcard.svg"
    playbtnImg.alt = "playbtn"
    playbtn.append(playbtnImg)
 
+   //to add songs of card in queue
    let flag = false;
    if (flag == false) {
       addcirc.addEventListener('click', () => {
@@ -92,24 +103,83 @@ async function addcard(title_inp, artist_inp) {
 
       })
    }
-   else{
+   else {
       alert("You Have already added this")
    }
+
+   //to play song if playbutton of song card is pressed
+
+   playbtnImg.addEventListener('click', () => {
+      if (currentaudio) {
+         currentaudio.pause()
+      }
+      currentaudio = new Audio(`./songs/${filename_inp}`)
+      currentaudio.play()
+      let player_play = document.getElementById("playbar")
+      player_play.src = "images/pause-bar.svg";
+   })
 }
 
 
 
 
+//functions for playbar
 
-addcard('song title', 'song artist')
-addQueue('song name', 'artist name')
+   //to play pause audio from playbar
 
 let player_play = document.getElementById("playbar")
-player_play.addEventListener("click",()=>{
+player_play.addEventListener("click", () => {
    let temp = player_play.src;
-   player_play.src = (temp.includes("images/play-bar.svg"))?"images/pause-bar.svg":"images/play-bar.svg"
+   if(temp.includes("images/play-bar.svg")){
+      player_play.src =   "images/pause-bar.svg";
+      currentaudio.play()
+   }
+   else{
+      player_play.src = "images/play-bar.svg";
+      currentaudio.pause()
+   }
 })
 
-function createarray(){
-   
+
+//raw from of names data got form arr.js
+
+let names = ['Jyoti Nooran - Paon Ki Jutti (Lyrics)(MP3_160K).mp3',
+   'KK - Pyaar Ke Pal (Lyrics)(MP3_160K).mp3',
+   'Kailash Kher - Teri Deewani (Lyrics)(MP3_160K).mp3',
+   'Yuvi - Pyaar (Lyrics)(MP3_160K).mp3'];
+
+
+//function to extract names and artist names from raw names array
+
+function extract(arr) {
+
+   return arr.map(arr => {
+      let cleanname = arr.replace(/\(.*\)/g, '').replace('.mp3', '').trim()
+      let parts = cleanname.split('-');
+
+      if (parts.length === 2) {
+         let song = parts[1];
+         let artist = parts[0];
+         return { song, artist, filename: arr }
+      }
+      else {
+         return { artist: 'Unknown', song: cleanname, filename: arr };
+      }
+   })
+
 }
+//to add the all the song cards as per the names data
+
+let data = extract(names)
+console.log(data);
+
+let i = 0;
+for (const songs of data) {
+   let sng = data[i].song;
+   let art = data[i].artist
+   let flname = data[i].filename
+   addcard(sng, art, flname);
+   i++
+}
+
+localStorage.setItem("playingsong",currentaudio)
