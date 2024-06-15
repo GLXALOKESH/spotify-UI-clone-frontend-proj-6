@@ -581,6 +581,7 @@ body {
 
     .cont {
         width: 100%;
+        position: relative;
     }
 
     .card {
@@ -634,4 +635,9 @@ body {
     .playlist {
         height: 80%;
     }
+    .playbar{
+        position: fixed;
+        bottom: 0px;
+    }
+    
 }
