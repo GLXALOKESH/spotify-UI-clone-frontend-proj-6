@@ -5,20 +5,22 @@
     font-family: sans-serif;
 
 }
-
-body{
+html, body{
     width: 100vw;
     height: 100vh;
+}
+
+body{
     background-color: black;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .slider{
     height: 100%;
     width: 30%;
     background-color: #121212;
-    /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
     padding: 10px 1px;
@@ -438,6 +440,10 @@ font-size: 14px;
     text-overflow: ellipsis;
 }
 
+.menu{
+    margin-right: auto;
+    visibility: hidden;
+}
 
 
 
@@ -497,4 +503,81 @@ font-size: 14px;
 
 *::-webkit-scrollbar-track {
     box-shadow: inset 0 0 10px #00ffcc;
+}
+.cross{
+    filter: invert();
+    -webkit-filter: invert();
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+
+@media screen and (max-width:415px) {
+    
+    .slider{
+        /*visibility: hidden;
+        */position: absolute;
+        z-index: 300;
+        width: 90%;
+        left: -500px;
+        top: 0;
+        transition:all 0.8s ease-in-out ;
+        -webkit-transition:all 0.8s ease-in-out ;
+        -moz-transition:all 0.8s ease-in-out ;
+        -ms-transition:all 0.8s ease-in-out ;
+        -o-transition:all 0.8s ease-in-out ;
+}
+    .slider-come{
+        left: 0;
+        transition: all 0.8s ease-in-out;
+        -webkit-transition: all 0.8s ease-in-out;
+        -moz-transition: all 0.8s ease-in-out;
+        -ms-transition: all 0.8s ease-in-out;
+        -o-transition: all 0.8s ease-in-out;
+}
+    .cont{
+        width: 100%;
+    }
+    .card{
+        min-width: 170px;
+        max-height: 250px;
+    }
+    .menu{
+        visibility: visible;
+        cursor: pointer;
+    }
+    .names-playbar p:nth-child(1){
+        font-size: 10px;
+
+    }
+    .names-playbar p:nth-child(2){
+        font-size: 8px;
+    }
+    .song-details{
+        width: 50%;
+    }
+    .controls{
+        margin-right: 30%;
+    }
+    .logo{
+        width: 100%;
+        display: flex;
+    }
+    .cross{
+        display: block;
+    }
+    .play-btn-card{
+        opacity: 1; 
+        /* display: block;  */
+        right: 10%;
+        bottom: 35%;
+        visibility: visible;
+    }
+    .nav{
+        height: 3%;
+    }
+    .playlist{
+        height: 80%;
+    }
 }

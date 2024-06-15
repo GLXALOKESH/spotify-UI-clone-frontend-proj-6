@@ -5,14 +5,16 @@ console.log("srcipt running");
 let currentaudio = null;
 let currentsong = localStorage.getItem("currentsong");
 let currenttime = localStorage.getItem("currenttime") || 0;
-if(currentsong){
+if (currentsong) {
    currentaudio = new Audio(currentsong);
    currentaudio.currentTime = currenttime;
 }
+let currentsongname = localStorage.getItem("currentsongname") || " ";
+let currentartistname = localStorage.getItem("currentartistname") || " ";
 
 //function to add song in queue
 
-function addQueue(songname_inp, artistname_inp) {
+function addQueue(songname_inp, artistname_inp,filename_inp) {
 
    let songcard = document.createElement('div')
    songcard.classList.add("song-card");
@@ -48,7 +50,25 @@ function addQueue(songname_inp, artistname_inp) {
    musiclogo.addEventListener("click", () => {
       songcard.remove()
    })
+//play songs using play button in queue
+   play.addEventListener('click',()=>{
+      console.log("yes");
+      
+      if (currentaudio) {
+         currentaudio.pause()
+      }
+      currentaudio = new Audio(`./songs/${filename_inp}`)
+      currentaudio.play()
+      let player_play = document.getElementById("playbar")
+      player_play.src = "images/pause-bar.svg";
 
+      localStorage.setItem("currentsong", `./songs/${filename_inp}`);
+      localStorage.setItem("currenttime", currentaudio.currentTime);
+
+      currentaudio.addEventListener('timeupdate', () => {
+         localStorage.setItem("currenttime", currentaudio.currentTime);
+      });
+   })
 
 }
 
@@ -98,9 +118,10 @@ async function addcard(title_inp, artist_inp, filename_inp) {
    if (flag == false) {
       addcirc.addEventListener('click', () => {
 
-         addQueue(title_inp, artist_inp);
+         addQueue(title_inp, artist_inp,filename_inp);
          flag = true;
-
+         // let que = document.getElementById('queue-cont')
+         // localStorage.setItem('queue', que.innerHTML);
       })
    }
    else {
@@ -117,36 +138,61 @@ async function addcard(title_inp, artist_inp, filename_inp) {
       currentaudio.play()
       let player_play = document.getElementById("playbar")
       player_play.src = "images/pause-bar.svg";
+
+      localStorage.setItem("currentsong", `./songs/${filename_inp}`);
+      localStorage.setItem("currenttime", currentaudio.currentTime);
+
+      currentaudio.addEventListener('timeupdate', () => {
+         localStorage.setItem("currenttime", currentaudio.currentTime);
+      });
+
+      //change playbar song and artist name
+
+      currentsongname = title_inp;
+      currentartistname = artist_inp;
+      psong.innerText = title_inp
+      partist.innerText = artist_inp
+
+      localStorage.setItem('currentsongname',currentsongname)
+      localStorage.setItem('currentartistname',currentartistname)
+
    })
 }
 
 
-
+ 
 
 //functions for playbar
 
-   //to play pause audio from playbar
+//to play pause audio from playbar
 
 let player_play = document.getElementById("playbar")
 player_play.addEventListener("click", () => {
    let temp = player_play.src;
-   if(temp.includes("images/play-bar.svg")){
-      player_play.src =   "images/pause-bar.svg";
+   if (temp.includes("images/play-bar.svg")) {
+      player_play.src = "images/pause-bar.svg";
       currentaudio.play()
    }
-   else{
+   else {
       player_play.src = "images/play-bar.svg";
       currentaudio.pause()
    }
 })
+//change playbar song and artist name(localstorage)
 
+let psong = document.getElementById('psong')
+let partist = document.getElementById('partist')
+psong.innerText = currentsongname
+partist.innerText = currentartistname
 
 //raw from of names data got form arr.js
 
-let names = ['Jyoti Nooran - Paon Ki Jutti (Lyrics)(MP3_160K).mp3',
-   'KK - Pyaar Ke Pal (Lyrics)(MP3_160K).mp3',
-   'Kailash Kher - Teri Deewani (Lyrics)(MP3_160K).mp3',
-   'Yuvi - Pyaar (Lyrics)(MP3_160K).mp3'];
+let names = ['Gajendra Verma- Mann Mera.mp3',
+  'Jyoti Nooran - Paon Ki Jutti (Lyrics)(MP3_160K).mp3',
+  'KK - Pyaar Ke Pal (Lyrics)(MP3_160K).mp3',
+  'Kailash Kher - Teri Deewani (Lyrics)(MP3_160K).mp3',
+  'Yuvi - Pyaar (Lyrics)(MP3_160K).mp3',
+  'neha kakkar - O Yaara.mp3'];
 
 
 //function to extract names and artist names from raw names array
@@ -182,4 +228,23 @@ for (const songs of data) {
    i++
 }
 
-localStorage.setItem("playingsong",currentaudio)
+localStorage.setItem("playingsong", currentaudio)
+
+if (currentaudio) {
+   player_play.src = "images/play-bar.svg";
+}
+currentaudio.addEventListener('timeupdate', () => {
+   localStorage.setItem("currenttime", currentaudio.currentTime);
+});
+
+let menu = document.getElementById('menu')
+
+menu.addEventListener('click', ()=>{
+   let slider = document.getElementById('slider')
+   slider.classList.add('slider-come')
+})
+let cross = document.getElementById('cross');
+cross.addEventListener('click',()=>{
+   let slider = document.getElementById('slider')
+   slider.classList.remove('slider-come').add('slider')
+})

@@ -1,5 +1,5 @@
-import fs from './fs'
-import path from './path'
+import fs from 'fs'
+import path from 'path'
 
 
 let dir = "/home/glxalokesh/Documents/vs code/spotify-UI-clone-frontend-proj-6/songs" ;
