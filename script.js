@@ -14,7 +14,7 @@ let currentartistname = localStorage.getItem("currentartistname") || " ";
 
 //function to add song in queue
 
-function addQueue(songname_inp, artistname_inp,filename_inp) {
+function addQueue(songname_inp, artistname_inp, filename_inp) {
 
    let songcard = document.createElement('div')
    songcard.classList.add("song-card");
@@ -50,10 +50,10 @@ function addQueue(songname_inp, artistname_inp,filename_inp) {
    musiclogo.addEventListener("click", () => {
       songcard.remove()
    })
-//play songs using play button in queue
-   play.addEventListener('click',()=>{
+   //play songs using play button in queue
+   play.addEventListener('click', () => {
       console.log("yes");
-      
+
       if (currentaudio) {
          currentaudio.pause()
       }
@@ -68,7 +68,19 @@ function addQueue(songname_inp, artistname_inp,filename_inp) {
       currentaudio.addEventListener('timeupdate', () => {
          localStorage.setItem("currenttime", currentaudio.currentTime);
       });
+
+      //update song name and artist name 
+
+      currentsongname = songname_inp;
+      currentartistname = artistname_inp;
+      psong.innerText = songname_inp
+      partist.innerText = artistname_inp
+
+      localStorage.setItem('currentsongname', currentsongname)
+      localStorage.setItem('currentartistname', currentartistname)
    })
+
+
 
 }
 
@@ -118,7 +130,7 @@ async function addcard(title_inp, artist_inp, filename_inp) {
    if (flag == false) {
       addcirc.addEventListener('click', () => {
 
-         addQueue(title_inp, artist_inp,filename_inp);
+         addQueue(title_inp, artist_inp, filename_inp);
          flag = true;
          // let que = document.getElementById('queue-cont')
          // localStorage.setItem('queue', que.innerHTML);
@@ -153,14 +165,14 @@ async function addcard(title_inp, artist_inp, filename_inp) {
       psong.innerText = title_inp
       partist.innerText = artist_inp
 
-      localStorage.setItem('currentsongname',currentsongname)
-      localStorage.setItem('currentartistname',currentartistname)
+      localStorage.setItem('currentsongname', currentsongname)
+      localStorage.setItem('currentartistname', currentartistname)
 
    })
 }
 
 
- 
+
 
 //functions for playbar
 
@@ -188,11 +200,11 @@ partist.innerText = currentartistname
 //raw from of names data got form arr.js
 
 let names = ['Gajendra Verma- Mann Mera.mp3',
-  'Jyoti Nooran - Paon Ki Jutti (Lyrics)(MP3_160K).mp3',
-  'KK - Pyaar Ke Pal (Lyrics)(MP3_160K).mp3',
-  'Kailash Kher - Teri Deewani (Lyrics)(MP3_160K).mp3',
-  'Yuvi - Pyaar (Lyrics)(MP3_160K).mp3',
-  'neha kakkar - O Yaara.mp3'];
+   'Jyoti Nooran - Paon Ki Jutti (Lyrics)(MP3_160K).mp3',
+   'KK - Pyaar Ke Pal (Lyrics)(MP3_160K).mp3',
+   'Kailash Kher - Teri Deewani (Lyrics)(MP3_160K).mp3',
+   'Yuvi - Pyaar (Lyrics)(MP3_160K).mp3',
+   'neha kakkar - O Yaara.mp3'];
 
 
 //function to extract names and artist names from raw names array
@@ -239,12 +251,12 @@ currentaudio.addEventListener('timeupdate', () => {
 
 let menu = document.getElementById('menu')
 
-menu.addEventListener('click', ()=>{
+menu.addEventListener('click', () => {
    let slider = document.getElementById('slider')
    slider.classList.add('slider-come')
 })
 let cross = document.getElementById('cross');
-cross.addEventListener('click',()=>{
+cross.addEventListener('click', () => {
    let slider = document.getElementById('slider')
    slider.classList.remove('slider-come').add('slider')
 })
